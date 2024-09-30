@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PlatRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PlatRepository::class)]
@@ -21,14 +22,11 @@ class Plat
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column]
-    private ?bool $prix = null;
-
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $active = null;
+    private ?bool $active = null;
 
     #[ORM\ManyToOne(inversedBy: 'plat')]
     #[ORM\JoinColumn(nullable: false)]
@@ -39,6 +37,9 @@ class Plat
      */
     #[ORM\OneToMany(targetEntity: Detail::class, mappedBy: 'plat')]
     private Collection $detail;
+
+    #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2, nullable: false)]
+    private ?string $prix = null;
 
     public function __construct()
     {
@@ -70,18 +71,6 @@ class Plat
     public function setDescription(string $description): static
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function isPrix(): ?bool
-    {
-        return $this->prix;
-    }
-
-    public function setPrix(bool $prix): static
-    {
-        $this->prix = $prix;
 
         return $this;
     }
@@ -148,6 +137,18 @@ class Plat
                 $detail->setPlat(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrix(): ?string
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(?string $prix): static
+    {
+        $this->prix = $prix;
 
         return $this;
     }

@@ -56,7 +56,7 @@ class FixtureMonRestaurant extends Fixture
         $plat1->setCategorie($categorie3);
         $plat1->setLibelle('salade_composee');
         $plat1->setDescription('légumes');
-        $plat1->setPrix('7');
+        //$plat1->setPrix('7');
         $plat1->setImage('assets/images/category/salade_cat.jpg');
         $plat1->setActive('Yes');
         $manager->persist($plat1);
@@ -66,7 +66,7 @@ class FixtureMonRestaurant extends Fixture
         $plat2->setCategorie($categorie4);
         $plat2->setLibelle('Penne_creme_légumes');
         $plat2->setDescription('Pâtes_crème');
-        $plat2->setPrix('15');
+        //$plat2->setPrix('15');
         $plat2->setImage('assets/images/category/pasta_cat.jpg');
         $plat2->setActive('');
         $manager->persist($plat2);
@@ -76,7 +76,7 @@ class FixtureMonRestaurant extends Fixture
         $plat3->setCategorie($categorie1);
         $plat3->setLibelle('Sandwich');
         $plat3->setDescription('Pain_mie_jambon');
-        $plat3->setPrix('8');
+        //$plat3->setPrix('8');
         $plat3->setImage('assets/images/category/sandwich_cat.jpg');
         $plat3->setActive('Yes');
         $manager->persist($plat3);
@@ -88,7 +88,7 @@ class FixtureMonRestaurant extends Fixture
         $plat4->setCategorie($categorie5);
         $plat4->setLibelle('Buffalo-chicken');
         $plat4->setDescription('Poulet_légumes');
-        $plat4->setPrix('12');
+        //$plat4->setPrix('12');
         $plat4->setImage('assets/images/food/buffalo-chicken.webp');
         $plat4->setActive('Yes');
         $manager->persist($plat4);
@@ -99,7 +99,7 @@ class FixtureMonRestaurant extends Fixture
         $plat5->setCategorie($categorie3);
         $plat5->setLibelle('Veggie');
         $plat5->setDescription('Légumes');
-        $plat5->setPrix('12');
+        //$plat5->setPrix('12');
         $plat5->setImage('assets/images/category/veggie_cat.jpg');
         $plat5->setActive('Yes');
         $manager->persist($plat5);
