@@ -8,11 +8,12 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class CatalogueController extends AbstractController
 {
-    #[Route('/', name: 'app_index')]
-    public function index(): Response
+    #[Route('/', name: 'app_catalogue')]
+    public function catalogue(): Response
     {
+
         return $this->render('catalogue/index.html.twig', [
-            'controller_name' => 'CatalogueController',
+            'controller_name' => 'app_catalogue',
         ]);
     }
 
@@ -20,23 +21,23 @@ class CatalogueController extends AbstractController
     public function plats(): Response
     {
         return $this->render('catalogue/index.html.twig', [
-            'controller_name' => 'CatalogueController',
+            'controller_name' => 'app_plats',
         ]);
     }
 
-    #[Route('/plats/{categorie_id}', name: 'app_plats_cat', requirements:['categorie_id' => '/d+'])]
-    public function platsCategorie(): Response
+    #[Route('/plats/{categorie_id}', name: 'app_plats_by_categorie')]
+    public function plats_by_categorie(): Response
     {
         return $this->render('catalogue/index.html.twig', [
-            'controller_name' => 'CatalogueController',
+            'controller_name' => 'app_plats_by_categorie',
         ]);
     }
 
-    #[Route('/categories', name: 'app_categories', requirements:['categorie_id' => '/d+'])]
-    public function Categories(): Response
+    #[Route('/categories', name: 'app_categories')]
+    public function categories(): Response
     {
         return $this->render('catalogue/index.html.twig', [
-            'controller_name' => 'CatalogueController',
+            'controller_name' => 'app_categories',
         ]);
     }
 }

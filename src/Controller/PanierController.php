@@ -8,19 +8,20 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class PanierController extends AbstractController
 {
-    #[Route('/panier', name: 'app_panier')]
-    public function index(): Response
+
+    #[Route('/panier/ajout/{id}', name: 'app_add_plat')]
+    public function add_plat(): Response
     {
         return $this->render('panier/index.html.twig', [
-            'controller_name' => 'PanierController',
+            'controller_name' => 'app_add_plat',
         ]);
     }
 
-    #[Route('/panier/ajout/{id}', name: 'app_ajout_panier')]
-    public function panierajout(): Response
+    #[Route('/panier', name: 'app_show_panier')]
+    public function show_panier(): Response
     {
         return $this->render('panier/index.html.twig', [
-            'controller_name' => 'PanierController',
+            'controller_name' => 'app_show_panier',
         ]);
     }
 }
