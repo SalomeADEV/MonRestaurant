@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\DetailRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: DetailRepository::class)]
@@ -13,9 +14,6 @@ class Detail
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $quantite = null;
-
 
     #[ORM\ManyToOne(inversedBy: 'detail')]
     #[ORM\JoinColumn(nullable: false)]
@@ -24,22 +22,14 @@ class Detail
     #[ORM\ManyToOne(inversedBy: 'detail')]
     private ?Commande $commande = null;
 
+    #[ORM\Column(type: Types::SMALLINT)]
+    private ?int $quantite = null;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getQuantite(): ?string
-    {
-        return $this->quantite;
-    }
-
-    public function setQuantite(string $quantite): static
-    {
-        $this->quantite = $quantite;
-
-        return $this;
-    }
 
     public function getPlat(): ?Plat
     {
@@ -61,6 +51,18 @@ class Detail
     public function setCommande(?Commande $commande): static
     {
         $this->commande = $commande;
+
+        return $this;
+    }
+
+    public function getQuantite(): ?int
+    {
+        return $this->quantite;
+    }
+
+    public function setQuantite(int $quantite): static
+    {
+        $this->quantite = $quantite;
 
         return $this;
     }

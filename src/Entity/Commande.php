@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CommandeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
@@ -14,15 +15,6 @@ class Commande
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $date_commande = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $total = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $etat = null;
 
     #[ORM\ManyToOne(inversedBy: 'commande')]
     #[ORM\JoinColumn(nullable: false)]
@@ -34,6 +26,15 @@ class Commande
     #[ORM\OneToMany(targetEntity: Detail::class, mappedBy: 'commande')]
     private Collection $detail;
 
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $date_commande = null;
+
+    #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2)]
+    private ?string $total = null;
+
+    #[ORM\Column(type: Types::SMALLINT)]
+    private ?int $etat = null;
+
     public function __construct()
     {
         $this->detail = new ArrayCollection();
@@ -44,41 +45,7 @@ class Commande
         return $this->id;
     }
 
-    public function getDateCommande(): ?string
-    {
-        return $this->date_commande;
-    }
 
-    public function setDateCommande(string $date_commande): static
-    {
-        $this->date_commande = $date_commande;
-
-        return $this;
-    }
-
-    public function getTotal(): ?string
-    {
-        return $this->total;
-    }
-
-    public function setTotal(string $total): static
-    {
-        $this->total = $total;
-
-        return $this;
-    }
-
-    public function getEtat(): ?string
-    {
-        return $this->etat;
-    }
-
-    public function setEtat(string $etat): static
-    {
-        $this->etat = $etat;
-
-        return $this;
-    }
 
     public function getUtilisateur(): ?Utilisateur
     {
@@ -118,6 +85,42 @@ class Commande
                 $detail->setCommande(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDateCommande(): ?\DateTimeInterface
+    {
+        return $this->date_commande;
+    }
+
+    public function setDateCommande(\DateTimeInterface $date_commande): static
+    {
+        $this->date_commande = $date_commande;
+
+        return $this;
+    }
+
+    public function getTotal(): ?string
+    {
+        return $this->total;
+    }
+
+    public function setTotal(string $total): static
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    public function getEtat(): ?int
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(int $etat): static
+    {
+        $this->etat = $etat;
 
         return $this;
     }

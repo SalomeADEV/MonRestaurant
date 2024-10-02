@@ -27,9 +27,6 @@ class Utilisateur
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
-    #[ORM\Column]
-    private ?bool $telephone = null;
-
     #[ORM\Column(length: 255)]
     private ?string $adresse = null;
 
@@ -47,6 +44,9 @@ class Utilisateur
      */
     #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'utilisateur')]
     private Collection $commande;
+
+    #[ORM\Column(length: 20)]
+    private ?string $telephone = null;
 
     public function __construct()
     {
@@ -102,18 +102,6 @@ class Utilisateur
     public function setPrenom(string $prenom): static
     {
         $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function isTelephone(): ?bool
-    {
-        return $this->telephone;
-    }
-
-    public function setTelephone(bool $telephone): static
-    {
-        $this->telephone = $telephone;
 
         return $this;
     }
@@ -192,6 +180,18 @@ class Utilisateur
                 $commande->setUtilisateur(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(string $telephone): static
+    {
+        $this->telephone = $telephone;
 
         return $this;
     }

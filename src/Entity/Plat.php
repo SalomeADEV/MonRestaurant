@@ -25,7 +25,7 @@ class Plat
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column]
     private ?bool $active = null;
 
     #[ORM\ManyToOne(inversedBy: 'plat')]
@@ -87,12 +87,12 @@ class Plat
         return $this;
     }
 
-    public function getActive(): ?string
+    public function getActive(): ?bool
     {
         return $this->active;
     }
 
-    public function setActive(string $active): static
+    public function setActive(bool $active): static
     {
         $this->active = $active;
 
