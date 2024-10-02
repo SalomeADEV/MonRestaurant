@@ -1,3 +1,19 @@
 body {
     background-color: pink;
 }
+
+#myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Placez la vidéo derrière les autres éléments */
+    opacity: 1; /* Diminuez l'opacité pour que le texte reste lisible */
+  }
+  
+  .navbar {
+    position: relative; /* Nécessaire pour le positionnement correct de la vidéo */
+    height: auto; /* ou la hauteur spécifique si nécessaire */
+    opacity: 0.4;
+  }
