@@ -14,6 +14,7 @@ body {
   
   .navbar {
     position: relative; /* Nécessaire pour le positionnement correct de la vidéo */
-    height: auto; /* ou la hauteur spécifique si nécessaire */
+    /* ou la hauteur spécifique si nécessaire */
+    height: auto; 
     opacity: 0.4;
   }

@@ -6,6 +6,8 @@ use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use App\Entity\User;
+
 
 class CategorieType extends AbstractType
 {
@@ -23,5 +25,16 @@ class CategorieType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Categorie::class,
         ]);
+
     }
+
+
+
+
 }
+
+
+
+
+
+

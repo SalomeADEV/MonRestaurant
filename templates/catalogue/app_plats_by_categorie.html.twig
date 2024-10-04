@@ -5,7 +5,7 @@
 {% block body %}
 <div class="container-fluid" >
   <div class="row justify-content-center">
-    <div class="col-md-6 mx-5 card mb-3 mx-5" style="max-width: 540px;">
+    {# <div class="col-md-6 mx-5 card mb-3 mx-5" style="max-width: 540px;">
       <div class="row g-0">
           <div class="col-md-4">
             <img src={{"assets/images/food/tagliatelles-saumon.webp" }}class="img-fluid rounded-start" alt={{"Pâtes"}}>
@@ -19,10 +19,27 @@
             </div>
           </div>
         </div>
+      </div> #}
+
+      {% for plat in plats %}
+         <div class="col-md-6 mx-5 card mb-3 mx-5" style="max-width: 540px;">
+      <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{ asset ("images/food/" ~ plat.image) }}"class="img-fluid rounded-start" alt="{{ plat.libelle }}_image">
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h5 class="card-title">{{ plat.libelle }}</h5>
+              <p class="card-text">{{ plat.description }}</p>
+              <a src=""><button class="btn btn-primary">Commande</button></a>
+            </div>
+          </div>
+        </div>
       </div>
+      {% endfor %}
 
 
-      <div class="col-md-6 mx-5 card mb-3 mx-5" style="max-width: 540px;">
+      {# <div class="col-md-6 mx-5 card mb-3 mx-5" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
             <img src={{"..assets/img/food/hamburger.jpg"}} class="img-fluid rounded-start" alt={{"hamburger"}}>
@@ -89,9 +106,9 @@ div class="card mb-3 mx-5 col-md-6" style="max-width: 540px;">
               <p class="card-text"><small class="text-body-secondary">ici le texte</small></p>
               <textarea>{{Commander}}</textarea>
             </div>
-          </div>
+          </div>#}
         </div>
-      </div>
+      </div> 
 
 
 {% endblock %}
