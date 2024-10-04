@@ -1,20 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CatalogueController!{% endblock %}
+{% block title %}Mes plats{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/jippe/Chantal/DevAppli/MonRestaurant/src/Controller/CatalogueController.php</code></li>
-        <li>Your template at <code>/home/jippe/Chantal/DevAppli/MonRestaurant/templates/catalogue/index.html.twig</code></li>
-    </ul>
+{% for plat in plats %}
+ 
+   <div class="card col-6 mb-3 mx-5" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ asset ('id/category/' ~ plat.id)}}" class="img-fluid rounded-start" alt="{{ plat.libelle }}-id">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ id.libelle }}</h5>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

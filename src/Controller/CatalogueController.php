@@ -2,18 +2,32 @@
 
 namespace App\Controller;
 
+use App\Repository\CategorieRepository;
+use App\Repository\PlatRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class CatalogueController extends AbstractController
 {
+    private $categorieRepo;
+    private $platRepo;
+
+    public function __construct(CategorieRepository $categorieRepo,PlatRepository $platRepo)
+    {
+        $this->categorieRepo = $categorieRepo;
+        $this->platRepo = $platRepo;
+    }
+
     #[Route('/', name: 'app_catalogue')]
     public function catalogue(): Response
     {
+        $categories = $this->categorieRepo->findAll();
+        $plats = $this->platRepo->findAll();
 
         return $this->render('catalogue/app_catalogue.html.twig', [
-            'controller_name' => 'app_catalogue',
+            'plats' => $plats,
+            'categories' => $categories,
         ]);
     }
 
