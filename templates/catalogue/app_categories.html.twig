@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CatalogueController!{% endblock %}
+{% block title %}Hello CatalogueController!
+{% endblock %}
 
 {% block body %}
 
@@ -12,7 +13,11 @@
 				<div class="card col-6 mb-3 mx-5" style="max-width: 540px;">
 					<div class="row g-0">
 						<div class="col-md-4">
-							<img src="{{ asset ('images/category/' ~ categorie.image)}}" class="img-fluid rounded-start" alt="{{ categorie.libelle }}-image">
+							<a href="{{ path('app_plats_by_categorie', {'categorie_id': categorie.id}) }}">
+
+								<img src="{{ asset ('images/category/' ~ categorie.image)}}" class="img-fluid rounded-start" alt="{{ categorie.libelle }}-image">
+
+							</a>
 						</div>
 						<div class="col-md-8">
 							<div class="card-body">

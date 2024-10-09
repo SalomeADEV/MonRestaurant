@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes plats par categorie{% endblock %}
+{% block title %}
+<h1>Mes plats par categorie</h1>
+{% endblock %}
 
 {% block body %}
 <div class="container-fluid" >
@@ -25,13 +27,13 @@
          <div class="col-md-6 mx-5 card mb-3 mx-5" style="max-width: 540px;">
       <div class="row g-0">
           <div class="col-md-4">
-            <img src="{{ asset ("images/food/" ~ plat.image) }}"class="img-fluid rounded-start" alt="{{ plat.libelle }}_image">
+           <img src="{{ asset ("images/food/" ~ plat.image) }}"class="img-fluid rounded-start" alt="{{ plat.libelle }}_image"> 
           </div>
           <div class="col-md-6">
             <div class="card-body">
               <h5 class="card-title">{{ plat.libelle }}</h5>
               <p class="card-text">{{ plat.description }}</p>
-              <a src=""><button class="btn btn-primary">Commande</button></a>
+              <a src="" class="btn btn-primary">Commande</a>
             </div>
           </div>
         </div>

@@ -24,7 +24,8 @@
 
 
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
-			<div class="container-fluid">
+			<div
+				class="container-fluid">
 				{# <a class="navbar-brand" href="{{ path ('app_catalogue') }}">Accueil #}
 				<img src="{{ asset('images/the_district_brand/logo.png')}}" alt="logo" width="130" height="120">
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,10 +42,10 @@
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path ('app_plats') }}">Plats</a>
 						</li>
-							<li class="nav-item">
+						<li class="nav-item">
 							<a class="nav-link" href="{{ path ('app_contact') }}">Contact</a>
 						</li>
-						
+
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Dropdown link
@@ -66,9 +67,16 @@
 			</div>
 		</nav>
 
+		{% block body %}{% endblock %}
+
 		<!-- -->
 
-		{% block body %}{% endblock %}
+
+		<div class="float-sm-end">Float end on viewports sized SM (small) or wider</div><br>
+		<div class="float-md-end">Float end on viewports sized MD (medium) or wider</div><br>
+		<div class="float-lg-end">Float end on viewports sized LG (large) or wider</div><br>
+		<div class="float-xl-end">Float end on viewports sized XL (extra large) or wider</div><br>
+		<div class="float-xxl-end">Float end on viewports sized XXL (extra extra large) or wider</div><br>
 
 
 		<!-- ici le footer -->
@@ -87,3 +95,4 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 	</body>
 </html>
+

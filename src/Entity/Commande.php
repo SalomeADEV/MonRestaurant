@@ -16,10 +16,6 @@ class Commande
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'commande')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Utilisateur $utilisateur = null;
-
     /**
      * @var Collection<int, Detail>
      */
@@ -35,6 +31,9 @@ class Commande
     #[ORM\Column(type: Types::SMALLINT)]
     private ?int $etat = null;
 
+    #[ORM\ManyToOne(inversedBy: 'commande')]
+    private ?Utilisateur $utilisateur = null;
+
     public function __construct()
     {
         $this->detail = new ArrayCollection();
@@ -45,19 +44,6 @@ class Commande
         return $this->id;
     }
 
-
-
-    public function getUtilisateur(): ?Utilisateur
-    {
-        return $this->utilisateur;
-    }
-
-    public function setUtilisateur(?Utilisateur $utilisateur): static
-    {
-        $this->utilisateur = $utilisateur;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Detail>
@@ -121,6 +107,18 @@ class Commande
     public function setEtat(int $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }

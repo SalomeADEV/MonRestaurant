@@ -120,7 +120,7 @@ class FixtureMonRestaurant extends Fixture
          $utilisateur1->setAdresse('1 rue plouf');
          $utilisateur1->setCP('01000');
          $utilisateur1->setVille('Plouf City');
-         $utilisateur1->setRoles('ROLE_CLIENT');
+         $utilisateur1->setRoles(['ROLE_CLIENT']);
          $manager->persist($utilisateur1);
          
          $utilisateur2 = new utilisateur();
@@ -132,7 +132,7 @@ class FixtureMonRestaurant extends Fixture
          $utilisateur2->setAdresse('52 rue du Général de Gaulle');
          $utilisateur2->setCP('92000');
          $utilisateur2->setVille('Nanterre');
-         $utilisateur2->setRoles('ROLE_CLIENT');
+         $utilisateur2->setRoles(['ROLE_CLIENT']);
          $manager->persist($utilisateur2);
 
 
