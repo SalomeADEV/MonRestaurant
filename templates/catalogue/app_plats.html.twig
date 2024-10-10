@@ -15,7 +15,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ plat.libelle }}</h5>
         <p>{{ plat.description }}</p>
-          <a href="{{ path('app_show_panier') }}" class="btn btn-primary">Commande</a>
+          <a href="{{ path('app_add_plat', {id: plat.id}) }}" class="btn btn-primary">Commande</a>
       </div>
     </div>
   </div>
